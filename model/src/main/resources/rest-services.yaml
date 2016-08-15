@@ -1,0 +1,34 @@
+---
+swagger: '2.0'
+info:
+  version: v1
+  title: NetconfConnectorService
+  contact:
+    name: c00168314
+    email: c00168314@notesmail.huawei.com
+  description: |
+schemes:
+  - https
+basePath: /rest
+paths:
+  /netconfconnectorservice/v1:
+    get:
+      tags:
+        - NetconfConnectorService
+      operationId: getServiceInfo
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Get Service Information
+          schema:
+            type: string
+definitions:
+  ServiceInfo:
+    properties:
+      serviceName:
+        type: string
+      serviceVersion:
+        type: string
+      serviceOwner:
+        type: string
