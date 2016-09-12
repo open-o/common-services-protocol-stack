@@ -1,0 +1,21 @@
+{
+	"request": {
+		"uri": "/openoapi/protocolstack-netconf/v1/extSysID/{extSys-id}/messages",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": {
+			
+            "protocol": "netconf",
+            "rpcArgList": [],
+            "invokeMode": "SYNC",
+            "callbackPostUrl": "/openoapi/vnfd/v1/vnfds/response",
+            "payload": "<get><filter type=\"subtree\"> <system xmlns=\"http://www.huawei.com/netconf/vrp\" format-version=\"1.0\" content-version=\"1.0\"> <systemInfo></systemInfo></system></filter> </get>"			
+            }
+		},
+	
+    "response": {
+		"status": 201		
+	}
+}
