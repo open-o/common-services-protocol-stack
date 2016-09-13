@@ -6,8 +6,8 @@
 	  <version>1.0.0-SNAPSHOT</version>
 	  <relativePath></relativePath>
 	</parent>
-    <groupId>org.openo.common-services.protocolstack</groupId>
-    <artifactId>protocolstack-service-root</artifactId>
+    <groupId>org.openo.common-services.protocol-stack</groupId>
+    <artifactId>protocol-stack-service-root</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
     <name>ProtocolStackServiceRoot</name>  
     <packaging>pom</packaging>
@@ -66,4 +66,18 @@
     <modules>
         <module>protocolstack</module>
     </modules>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
