@@ -1,0 +1,26 @@
+[
+	{
+		"url": "/openoapi/protocolstack-netconf/v1",
+		"prefix": "/protocolstack"
+	},
+	{
+		"url": "/openoapi/sdnobrs/v1",
+		"prefix": "/org.openo.sdno.brs"
+	},
+	{
+		"url": "/openoapi/sdnol3vpn/v1/l3vpns",
+		"prefix": "/org.openo.sdno.l3vpnservice"
+	},
+	{
+		"url": "/openoapi/sdnooverlay",
+		"prefix": "/org.openo.sdno.overlayvpnservice"
+	},
+	{
+		"url": "/openoapi/sdnovxlan/v1/vxlanservice",
+		"prefix": ""
+	},
+	{
+		"url": "/openoapi/sdnoipsec/v1/ipsecs",
+		"prefix": ""
+	}
+]

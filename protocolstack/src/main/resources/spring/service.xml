@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:osgi="http://www.springframework.org/schema/osgi" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/context 
+     http://www.springframework.org/schema/context/spring-context.xsd
+     http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
+
+    <!-- these are included in the dependency jar -->
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+    
+    <!-- jar rest server registration -->
+    <jaxrs:server id="sampleServer" address="/">
+        <!-- registering beans -->
+        <jaxrs:serviceBeans>
+            <ref bean="NetconfROAService"></ref>
+        </jaxrs:serviceBeans>
+        <!-- registering providers -->
+        <jaxrs:providers>
+            <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
+        </jaxrs:providers>
+    </jaxrs:server>
+    
+    <context:annotation-config/>
+    <context:component-scan base-package="org.openo.commsvc" />
+    
+ 
+    
+    
+    <bean id="NetconfClientFactoryBean" class="org.openo.commsvc.protocolstack.netconf.service.svc.protocol.service.DefaultCacheNetconfClientFactory">
+        <property name="cacheSessionPool" ref="SessionPoolBean" />
+    </bean>
+    
+    
+    
+    
+    <bean id="SessionPoolBean" class="org.openo.commsvc.protocolstack.netconf.service.svc.protocol.session.CacheSessionPool">
+        <property name="sessionFactory" ref="SessionFactoryBean" />
+    </bean>
+
+    
+    <bean id="SessionFactoryBean" class="org.openo.commsvc.protocolstack.netconf.service.svc.protocol.session.DefaultSessionFactory">
+        <property name="transportFactory" ref="TransportFactoryBean" />
+    </bean>
+
+    
+    <bean id="TransportFactoryBean" class="org.openo.commsvc.protocolstack.netconf.service.svc.protocol.transport.SSHTransportFactory"/>
+    
+    
+    <bean id="connParamsMgr"
+        class="org.openo.commsvc.protocolstack.netconf.service.svc.business.impl.ConnParamsMgr">
+        <property name="cacheSessionPool" ref="SessionPoolBean" />
+    </bean>
+    
+    
+    <bean id="connStatusDetector" class="org.openo.commsvc.protocolstack.netconf.service.svc.business.impl.ConnStatusDetector" init-method="detectConnStatus">
+        <property name="cacheSessionPool" ref="SessionPoolBean"></property>
+    </bean>
+    
+    
+    <bean id="netconfMsgBusiness"
+        class="org.openo.commsvc.protocolstack.netconf.service.svc.business.impl.NetconfMsgBusinessImpl">
+        <property name="netconfClientFactory" ref="NetconfClientFactoryBean"></property>
+        <property name="connParamsMgr" ref="connParamsMgr"></property>
+    </bean>
+    
+    
+    <bean id="NetconfROAService"
+        class="org.openo.commsvc.protocolstack.netconf.service.svc.service.NetconfROAService">
+        <property name="netconfMsgBusiness" ref="netconfMsgBusiness"></property>
+    </bean>
+    
+    
+    <bean id="connParamsServiceBean" class="org.openo.commsvc.protocolstack.netconf.service.svc.service.impl.ConnParamsServiceImpl">
+        <property name="connParamsMgr" ref="connParamsMgr"></property>
+    </bean>    
+
+</beans>
