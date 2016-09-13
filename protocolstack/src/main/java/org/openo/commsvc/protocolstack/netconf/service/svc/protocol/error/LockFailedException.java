@@ -14,27 +14,36 @@
  * limitations under the License.
  */
 
-package org.openo.commonsvc.protocolstack.moco;
+package org.openo.commsvc.protocolstack.netconf.service.svc.protocol.error;
 
-import org.openo.sdno.testframework.moco.MocoHttpServer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+/**
+ * Failed to obtain a lock abnormality
+ * 
+ * @author
+ */
+public class LockFailedException extends Exception {
 
-public class ProtocolStack extends MocoHttpServer {
+    private static final long serialVersionUID = 5249050251260401226L;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProtocolStack.class);
-
-    private static String MOCO_TEST_PREFIX = "src/integration-test/resources/testcase/moco/";
-
-    public ProtocolStack() {
-        super();
+    /**
+     * Constructor
+     * <br>
+     * 
+     * @author
+     * @param e
+     */
+    public LockFailedException(InterruptedException e) {
+        super(e);
     }
 
-    @Override
-    public void addRequestResponsePairs() {
-
-        this.addRequestResponsePair(MOCO_TEST_PREFIX + "esr_interface.json");
-
+    /**
+     * Constructor
+     * 
+     * @author
+     * @param string
+     */
+    public LockFailedException(String string) {
+        super(string);
     }
 
 }

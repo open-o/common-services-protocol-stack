@@ -14,27 +14,14 @@
  * limitations under the License.
  */
 
-package org.openo.commonsvc.protocolstack.moco;
+package org.openo.commsvc.protocolstack.common.model;
 
-import org.openo.sdno.testframework.moco.MocoHttpServer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-public class ProtocolStack extends MocoHttpServer {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProtocolStack.class);
-
-    private static String MOCO_TEST_PREFIX = "src/integration-test/resources/testcase/moco/";
-
-    public ProtocolStack() {
-        super();
-    }
-
-    @Override
-    public void addRequestResponsePairs() {
-
-        this.addRequestResponsePair(MOCO_TEST_PREFIX + "esr_interface.json");
-
-    }
-
+/**
+ * Enum to check the status of controller connection<br>
+ *
+ * @author
+ * @version GSO 0.5 Sep 7, 2016
+ */
+public enum ControllerStatus {
+    NORMAL, ABNORMAL
 }

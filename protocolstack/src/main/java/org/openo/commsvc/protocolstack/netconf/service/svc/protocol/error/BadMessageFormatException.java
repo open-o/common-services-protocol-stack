@@ -14,27 +14,28 @@
  * limitations under the License.
  */
 
-package org.openo.commonsvc.protocolstack.moco;
+package org.openo.commsvc.protocolstack.netconf.service.svc.protocol.error;
 
-import org.openo.sdno.testframework.moco.MocoHttpServer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+/**
+ * @author
+ * @see
+ */
+public class BadMessageFormatException extends NetconfException {
 
-public class ProtocolStack extends MocoHttpServer {
+    /**
+     * (Domain of meaning, purpose, function)
+     */
+    private static final long serialVersionUID = -4793220444053738352L;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProtocolStack.class);
-
-    private static String MOCO_TEST_PREFIX = "src/integration-test/resources/testcase/moco/";
-
-    public ProtocolStack() {
-        super();
+    /**
+     * 
+     * Constructor<br/>
+     * 
+     * @param msg
+     * @param error
+     * @since  SDNO 0.5
+     */
+    public BadMessageFormatException(String msg, Throwable error) {
+        super(NetconfErrCode.INTERNAL_ERROR, "Messge formate illegal:" + msg, error);
     }
-
-    @Override
-    public void addRequestResponsePairs() {
-
-        this.addRequestResponsePair(MOCO_TEST_PREFIX + "esr_interface.json");
-
-    }
-
 }

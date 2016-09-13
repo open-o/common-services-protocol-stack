@@ -14,27 +14,24 @@
  * limitations under the License.
  */
 
-package org.openo.commonsvc.protocolstack.moco;
+package org.openo.commsvc.protocolstack.netconf.service.svc.protocol.service;
 
-import org.openo.sdno.testframework.moco.MocoHttpServer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+/**
+ * NETCONFCached thread pool Interface Because C60 version GA, the interface can
+ * not be modified prior to subsequent rounds need to modify the version in the
+ * original interface.
+ * 
+ * @author
+ * @param <T>
+ */
+public interface ICacheSessionPool<T extends NetconfAccessInfo> extends ISessionPool<T> {
 
-public class ProtocolStack extends MocoHttpServer {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProtocolStack.class);
-
-    private static String MOCO_TEST_PREFIX = "src/integration-test/resources/testcase/moco/";
-
-    public ProtocolStack() {
-        super();
-    }
-
-    @Override
-    public void addRequestResponsePairs() {
-
-        this.addRequestResponsePair(MOCO_TEST_PREFIX + "esr_interface.json");
-
-    }
-
+    /**
+     * Directly off the device NETCONF connection
+     * 
+     * @author
+     * @param session
+     *            NETCONF connection device
+     */
+    void close(ISession session);
 }

@@ -14,27 +14,23 @@
  * limitations under the License.
  */
 
-package org.openo.commonsvc.protocolstack.moco;
+package org.openo.commsvc.protocolstack.netconf.service.svc.protocol.transport;
 
-import org.openo.sdno.testframework.moco.MocoHttpServer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.openo.commsvc.protocolstack.netconf.service.svc.protocol.error.NetconfException;
 
-public class ProtocolStack extends MocoHttpServer {
+/**
+ * Transport Layer Close listeners
+ * 
+ * @author
+ */
+public interface ITransportListener {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProtocolStack.class);
-
-    private static String MOCO_TEST_PREFIX = "src/integration-test/resources/testcase/moco/";
-
-    public ProtocolStack() {
-        super();
-    }
-
-    @Override
-    public void addRequestResponsePairs() {
-
-        this.addRequestResponsePair(MOCO_TEST_PREFIX + "esr_interface.json");
-
-    }
-
+    /**
+     * Processing and transmission layer side to close unexpectedly
+     * 
+     * @author
+     * @param transport Transport layer objects
+     * @param e NetconfException Exception error message
+     */
+    void handleTransportClosed(ITransport transport, NetconfException e);
 }

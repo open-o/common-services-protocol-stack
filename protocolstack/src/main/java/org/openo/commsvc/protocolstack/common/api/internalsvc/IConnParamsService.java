@@ -14,27 +14,34 @@
  * limitations under the License.
  */
 
-package org.openo.commonsvc.protocolstack.moco;
+package org.openo.commsvc.protocolstack.common.api.internalsvc;
 
-import org.openo.sdno.testframework.moco.MocoHttpServer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.openo.commsvc.protocolstack.common.model.ConnInfoQueryMsg;
 
-public class ProtocolStack extends MocoHttpServer {
+/**
+ * IConnParamsService method interface.<br/>
+ * <p>
+ * </p>
+ * 
+ * @author
+ * @version SDNO 0.5 28-May-2016
+ */
+public interface IConnParamsService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProtocolStack.class);
+    /**
+     * update Conn Params<br/>
+     * 
+     * @param connInfoMsg
+     * @since SDNO 0.5
+     */
+    void updateConnParams(ConnInfoQueryMsg connInfoMsg);
 
-    private static String MOCO_TEST_PREFIX = "src/integration-test/resources/testcase/moco/";
-
-    public ProtocolStack() {
-        super();
-    }
-
-    @Override
-    public void addRequestResponsePairs() {
-
-        this.addRequestResponsePair(MOCO_TEST_PREFIX + "esr_interface.json");
-
-    }
-
+    /**
+     * get Max Conn Num<br/>
+     * 
+     * @param controllerId
+     * @return
+     * @since SDNO 0.5
+     */
+    int getMaxConnNum(String controllerId);
 }

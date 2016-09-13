@@ -14,27 +14,36 @@
  * limitations under the License.
  */
 
-package org.openo.commonsvc.protocolstack.moco;
+package org.openo.commsvc.protocolstack.netconf.service.svc.service;
 
-import org.openo.sdno.testframework.moco.MocoHttpServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ProtocolStack extends MocoHttpServer {
+/**
+ * NetConf Service Registration
+ * 
+ * @author
+ * @see
+ * @since 1.0
+ */
+public class NetconfServiceUpRegister {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProtocolStack.class);
+    /**
+     * LOG
+     */
+    private static final Logger LOGGER = LoggerFactory.getLogger(NetconfServiceUpRegister.class);
 
-    private static String MOCO_TEST_PREFIX = "src/integration-test/resources/testcase/moco/";
-
-    public ProtocolStack() {
-        super();
+    /**
+     * Start
+     */
+    public void start() {
+        LOGGER.warn("netconf started.");
     }
 
-    @Override
-    public void addRequestResponsePairs() {
-
-        this.addRequestResponsePair(MOCO_TEST_PREFIX + "esr_interface.json");
-
+    /**
+     * Stop
+     */
+    public void stop() {
+        LOGGER.info("netconf stoped");
     }
-
 }

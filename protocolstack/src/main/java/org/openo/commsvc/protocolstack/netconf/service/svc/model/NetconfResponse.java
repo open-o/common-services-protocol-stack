@@ -14,27 +14,36 @@
  * limitations under the License.
  */
 
-package org.openo.commonsvc.protocolstack.moco;
+package org.openo.commsvc.protocolstack.netconf.service.svc.model;
 
-import org.openo.sdno.testframework.moco.MocoHttpServer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+/**
+ * NetconfResponse
+ * Netconf response parameters
+ * 
+ * @author
+ */
+public class NetconfResponse {
 
-public class ProtocolStack extends MocoHttpServer {
+    /**
+     * Response
+     */
+    private String response;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProtocolStack.class);
-
-    private static String MOCO_TEST_PREFIX = "src/integration-test/resources/testcase/moco/";
-
-    public ProtocolStack() {
-        super();
+    /**
+     * Constructor
+     * 
+     * @author
+     * @param response
+     */
+    public NetconfResponse(String response) {
+        this.response = response;
     }
 
-    @Override
-    public void addRequestResponsePairs() {
-
-        this.addRequestResponsePair(MOCO_TEST_PREFIX + "esr_interface.json");
-
+    public String getResponse() {
+        return response;
     }
 
+    public void setResponse(String response) {
+        this.response = response;
+    }
 }
