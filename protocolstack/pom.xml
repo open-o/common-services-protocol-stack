@@ -10,20 +10,7 @@
 	<artifactId>protocolstack-service</artifactId>
 	<name>ProtocolStackService</name>
 	<packaging>war</packaging>
-	<properties>
-		<cxf.version>3.1.6</cxf.version>
-		<slf4j.version>1.6.1</slf4j.version>
-		<!-- Used to locate the profile specific configuration file. -->
-		<build.profile.id>dev</build.profile.id>
-		<jacoco.it.execution.data.file>${project.build.directory}/coverage-reports/jacoco-it.exec</jacoco.it.execution.data.file>
-		<jacoco.ut.execution.data.file>${project.build.directory}/coverage-reports/jacoco-ut.exec</jacoco.ut.execution.data.file>
-		<jdk.version>1.8</jdk.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<!-- Only unit tests are run by default. -->
-		<skip.integration.tests>true</skip.integration.tests>
-		<skip.unit.tests>false</skip.unit.tests>
-	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.openo.common-services.common-utilities</groupId>
@@ -113,6 +100,12 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.jmockit</groupId>
+			<artifactId>jmockit</artifactId>
+			<version>1.19</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
@@ -123,6 +116,7 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.1</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.openo.integration</groupId>
 			<artifactId>org.openo.sdno.testframework</artifactId>
@@ -130,6 +124,10 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<build>
+        <finalName>${package.name}</finalName>
+    </build>
+   
 	<profiles>
 		<profile>
 			<id>all-tests</id>

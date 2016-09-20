@@ -1,7 +1,7 @@
 [
 	{
 		"url": "/openoapi/protocolstack-netconf/v1",
-		"prefix": "/protocolstack"
+		"prefix": "/protocolstack-service"
 	},
 	{
 		"url": "/openoapi/sdnobrs/v1",

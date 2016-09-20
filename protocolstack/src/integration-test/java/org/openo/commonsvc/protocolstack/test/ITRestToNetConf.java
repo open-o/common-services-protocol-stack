@@ -29,22 +29,17 @@ public class ITRestToNetConf extends TestManager {
     public void setup() throws ServiceException {
 
         mocoServer.start();
-        // topo.createInvTopology();
+
     }
 
     @After
     public void tearDown() throws ServiceException {
 
         mocoServer.stop();
-        // topo.clearInvTopology();
     }
 
     @Test
     public void createsynctest() throws ServiceException {
-
-        // Create Site to DC test case
-
-        // String uuid = topo.getResourceUuid(ResourceType.CONTROLLER, "ACBranchController");
 
         String uuid = "23-16";
 

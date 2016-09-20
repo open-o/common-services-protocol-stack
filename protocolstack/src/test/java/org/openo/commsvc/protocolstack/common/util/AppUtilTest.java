@@ -14,22 +14,23 @@
  * limitations under the License.
  */
 
-package org.openo.commonsvc.protocolstack.moco;
+package org.openo.commsvc.protocolstack.common.util;
 
-import org.openo.sdno.testframework.moco.MocoHttpServer;
+import static org.junit.Assert.*;
 
-public class ProtocolStack extends MocoHttpServer {
+import org.junit.Test;
 
-    private static String MOCO_TEST_PREFIX = "src/integration-test/resources/testcase/moco/";
 
-    public ProtocolStack() {
-        super();
-    }
+public class AppUtilTest {
 
-    @Override
-    public void addRequestResponsePairs() {
-
-        this.addRequestResponsePair(MOCO_TEST_PREFIX + "esr_interface.json");
+    /**
+     * Test method for {@link org.openo.commsvc.protocolstack.common.util.AppUtil#getProcessName()}.
+     */
+    @Test
+    public void testGetProcessName() {
+        String processName = "process";
+        AppUtil.getProcessName();
+        assertTrue(AppUtil.getProcessName()!=null);
     }
 
 }

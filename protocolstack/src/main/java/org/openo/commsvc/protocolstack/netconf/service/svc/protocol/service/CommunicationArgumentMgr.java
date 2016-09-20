@@ -134,9 +134,11 @@ public class CommunicationArgumentMgr {
 
         RestfulResponse result = RestfulUtil.getRemoteResponse(paramsMap, null, null);
 
-        ControllerCommInfo oInfo = JsonUtil.fromJson(result.getResponseContent(), ControllerCommInfo.class);
-        if(null != oInfo) {
-            return converToCommunicateArg(oInfo);
+        if(result != null) {
+            ControllerCommInfo oInfo = JsonUtil.fromJson(result.getResponseContent(), ControllerCommInfo.class);
+            if(null != oInfo) {
+                return converToCommunicateArg(oInfo);
+            }
         }
 
         return null;

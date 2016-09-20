@@ -12,7 +12,7 @@
 		"json": {
 			"sdnControllerId": "23-16",
 			"name": "ACBranchController",
-			"url": "http://127.0.0.1:22",
+			"url": "http://127.0.0.1:17830",
 			"userName": "admin",
 			"password": "admin",
 			"version": "v1.0",

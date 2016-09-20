@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -17,10 +18,9 @@
         <commonlib.version>1.0.1</commonlib.version>
         <commonbiz.version>1.0.1</commonbiz.version>
         <cxf.version>3.1.6</cxf.version>
+        <package.name>protocolstack-service</package.name>
     </properties>
-    <scm>
-        <tag>HEAD</tag>
-    </scm>
+   
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -65,6 +65,7 @@
     </dependencies>
     <modules>
         <module>protocolstack</module>
+        <module>deployment</module>
     </modules>
     <build>
         <plugins>

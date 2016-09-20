@@ -14,22 +14,19 @@
  * limitations under the License.
  */
 
-package org.openo.commonsvc.protocolstack.moco;
+package org.openo.commsvc.protocolstack.netconf.service.svc.protocol.transport;
 
-import org.openo.sdno.testframework.moco.MocoHttpServer;
+import static org.junit.Assert.*;
 
-public class ProtocolStack extends MocoHttpServer {
+import org.junit.Test;
 
-    private static String MOCO_TEST_PREFIX = "src/integration-test/resources/testcase/moco/";
+public class AbstractTransportTest {
 
-    public ProtocolStack() {
-        super();
-    }
-
-    @Override
-    public void addRequestResponsePairs() {
-
-        this.addRequestResponsePair(MOCO_TEST_PREFIX + "esr_interface.json");
-    }
+	@Test
+	public void testGetBytes() {
+		
+		
+		
+	}
 
 }

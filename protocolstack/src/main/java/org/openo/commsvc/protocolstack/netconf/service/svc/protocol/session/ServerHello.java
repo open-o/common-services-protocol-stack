@@ -109,6 +109,6 @@ public class ServerHello implements IRpcReply {
 
     @Override
     public void setResponse(String response) {
-        throw new IllegalAccessError("Unsupported function");
+        // No need to handle this
     }
 }

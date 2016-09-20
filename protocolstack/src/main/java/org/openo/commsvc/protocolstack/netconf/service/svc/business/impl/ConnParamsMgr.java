@@ -154,10 +154,12 @@ public class ConnParamsMgr {
         // Check if controllerId is already present in the CommunicationArgumentMgr
         if(CommunicationArgumentMgr.isContainsArg(controllerId)) {
             commArg = CommunicationArgumentMgr.getCommunicateArg(controllerId);
-            commArg.setIp(connInfo.getHostName());
-            commArg.setPort(connInfo.getPort());
-            commArg.setUserName(connInfo.getCommParam(CommonConstant.UNAME_KEY));
-            commArg.setPassword(connInfo.getCommParam(CommonConstant.PWD_KEY));
+            if(null != commArg) {
+                commArg.setIp(connInfo.getHostName());
+                commArg.setPort(connInfo.getPort());
+                commArg.setUserName(connInfo.getCommParam(CommonConstant.UNAME_KEY));
+                commArg.setPassword(connInfo.getCommParam(CommonConstant.PWD_KEY));
+            }
         } else {
             commArg = new CommunicateArg(connInfo.getHostName(), connInfo.getCommParam(CommonConstant.UNAME_KEY),
                     connInfo.getCommParam(CommonConstant.PWD_KEY), connInfo.getPort(), null, 0, 0);

@@ -13,23 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.openo.commsvc.protocolstack.netconf.service.svc.protocol.datadefination;
 
-package org.openo.commonsvc.protocolstack.moco;
+import static org.junit.Assert.assertTrue;
 
-import org.openo.sdno.testframework.moco.MocoHttpServer;
+import org.junit.Test;
 
-public class ProtocolStack extends MocoHttpServer {
+public class HWContextTest {
 
-    private static String MOCO_TEST_PREFIX = "src/integration-test/resources/testcase/moco/";
-
-    public ProtocolStack() {
-        super();
-    }
-
-    @Override
-    public void addRequestResponsePairs() {
-
-        this.addRequestResponsePair(MOCO_TEST_PREFIX + "esr_interface.json");
-    }
-
+	@Test
+	public void testHWContext() {
+		HWContext hWContext = new HWContext(12, 12);
+		HWContext hWContext1 = new HWContext(null, null);
+		assertTrue(true);
+	}
 }
