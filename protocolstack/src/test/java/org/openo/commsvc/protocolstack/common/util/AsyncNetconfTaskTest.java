@@ -20,7 +20,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.commsvc.protocolstack.common.business.ConnStatusMgr;
 import org.openo.commsvc.protocolstack.netconf.service.svc.business.impl.NetconfMsgBusinessImpl;
 import org.openo.commsvc.protocolstack.netconf.service.svc.model.NetconfReqMessage;
 
@@ -32,11 +31,11 @@ public class AsyncNetconfTaskTest {
     AsyncNetconfTask asyncNetconfTask = new AsyncNetconfTask(controllerId, message, netconfMsgBusiness);
     
     /**
-     * Test method for {@link org.openo.commsvc.protocolstack.common.util.AsyncNetconfTask#run()}.
-     * @throws ServiceException 
+     * Test method for {@link org.openo.commsvc.protocolstack.common.util.AsyncNetconf#run()}.
+     *  
      */
 
-    @Test(expected=Exception.class)
+    @Test
     public void testRun() throws ServiceException {
         asyncNetconfTask.run();
     }
