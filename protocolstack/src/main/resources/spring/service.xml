@@ -28,7 +28,9 @@
     <context:component-scan base-package="org.openo.commsvc" />
     
  
-    
+    <bean id="MsbManage" class="org.openo.commsvc.protocolstack.common.util.MsbRegistration" init-method="start"
+        destroy-method="stop">
+    </bean>
     
     <bean id="NetconfClientFactoryBean" class="org.openo.commsvc.protocolstack.netconf.service.svc.protocol.service.DefaultCacheNetconfClientFactory">
         <property name="cacheSessionPool" ref="SessionPoolBean" />

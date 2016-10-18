@@ -1,0 +1,14 @@
+{
+  "serviceName": "protocolstack-netconf",
+  "version": "v1",
+  "url": "/openoapi/protocolstack-netconf/v1",
+  "protocol": "REST",
+  "visualRange": "1",
+  "nodes": [
+    {
+      "ip": "",
+      "port": "8109",
+      "ttl": 0
+    }
+  ]
+}

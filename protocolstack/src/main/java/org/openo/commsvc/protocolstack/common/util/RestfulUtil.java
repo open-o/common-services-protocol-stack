@@ -45,10 +45,6 @@ public class RestfulUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RestfulUtil.class);
 
-    private static String DEFAULT_LOCAL_HOST = "localhost";
-
-    private static int DEFAULT_PORT = 8080;
-
     private RestfulUtil() {
         // hiding public constructor.
     }
@@ -63,7 +59,7 @@ public class RestfulUtil {
      * @since GSO 0.5
      */
     public static RestfulResponse getRemoteResponse(Map<String, String> paramsMap, String params,
-            Map<String, String> queryParam) {
+            Map<String, String> queryParam)  {
         if(null == paramsMap) {
             return null;
         }
@@ -88,56 +84,26 @@ public class RestfulUtil {
                 for(Map.Entry<String, String> curEntity : queryParam.entrySet()) {
                     restfulParametes.putHttpContextHeader(curEntity.getKey(), curEntity.getValue());
                 }
-            }
-
-            // Step 2: Set rest options
-            RestfulOptions restOptions = new RestfulOptions();
-            restOptions.setHost(DEFAULT_LOCAL_HOST);
-            restOptions.setPort(DEFAULT_PORT);
-
-            String changedUrl = replaceUrlAndRestOptions(url, restOptions);
+            }          
+           
 
             if(rest != null) {
                 if(CommonConstant.MethodType.GET.equalsIgnoreCase(methodType)) {
-                    rsp = rest.get(changedUrl, restfulParametes, restOptions);
+                    rsp = rest.get(url, restfulParametes, null);
                 } else if(CommonConstant.MethodType.POST.equalsIgnoreCase(methodType)) {
-                    rsp = rest.post(changedUrl, restfulParametes, restOptions);
+                    rsp = rest.post(url, restfulParametes, null);
                 } else if(CommonConstant.MethodType.PUT.equalsIgnoreCase(methodType)) {
-                    rsp = rest.put(changedUrl, restfulParametes, restOptions);
+                    rsp = rest.put(url, restfulParametes, null);
                 } else if(CommonConstant.MethodType.DELETE.equalsIgnoreCase(methodType)) {
-                    rsp = rest.delete(changedUrl, restfulParametes, restOptions);
+                    rsp = rest.delete(url, restfulParametes, null);
                 }
             }
-        } catch(ServiceException | IOException e) {
+        } catch(ServiceException  e) {
             LOGGER.error("function=getRemoteResponse, get restful response catch exception {}", e);
         }
         return rsp;
     }
 
-    private static String replaceUrlAndRestOptions(String uri, RestfulOptions restOptions) throws IOException {
-
-        InputStream busFileInputStream = RestfulUtil.class.getClassLoader().getResourceAsStream("busconfig.json");
-
-        String jsonString = IOUtils.toString(busFileInputStream);
-        List<Map<String, String>> configList =
-                JsonUtil.fromJson(jsonString, new TypeReference<List<Map<String, String>>>() {});
-        String url = uri;
-        for(Map<String, String> configMap : configList) {
-            if(uri.contains(configMap.get("containKey"))) {
-                url = configMap.get("replace") + uri;
-
-                if(configMap.containsKey("host")) {
-                    restOptions.setHost(configMap.get("host"));
-                }
-                if(configMap.containsKey("port")) {
-                    restOptions.setPort(Integer.valueOf(configMap.get("port")));
-                }
-                break;
-            }
-        }
-
-        return url;
-
-    }
+  
 
 }
