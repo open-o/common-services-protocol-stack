@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.openo.common-services.protocol-stack</groupId>
 		<artifactId>protocol-stack-service-root</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>1.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>protocolstack-service</artifactId>
 	<name>ProtocolStackService</name>
@@ -14,12 +14,12 @@
 		<dependency>
 			<groupId>org.openo.common-services.common-utilities</groupId>
 			<artifactId>commonlib-cbb</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>1.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.openo.common-services.common-utilities</groupId>
 			<artifactId>commonlib-restclient</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>1.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>dom4j</groupId>
@@ -119,7 +119,7 @@
 		<dependency>
 			<groupId>org.openo.integration</groupId>
 			<artifactId>org.openo.sdno.testframework</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>1.0.1-SNAPSHOT</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

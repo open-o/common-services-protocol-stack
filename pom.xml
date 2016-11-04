@@ -4,12 +4,12 @@
     <parent>
 	  <groupId>org.openo.oparent</groupId>
 	  <artifactId>oparent</artifactId>
-	  <version>1.0.0-SNAPSHOT</version>
+	  <version>1.0.1-SNAPSHOT</version>
 	  <relativePath>../oparent</relativePath>
 	</parent>
     <groupId>org.openo.common-services.protocol-stack</groupId>
     <artifactId>protocol-stack-service-root</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.1-SNAPSHOT</version>
     <name>ProtocolStackServiceRoot</name>  
     <packaging>pom</packaging>
     <properties>
