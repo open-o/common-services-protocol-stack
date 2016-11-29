@@ -7,7 +7,7 @@
 		<version>1.1.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>protocolstack-service</artifactId>
-	<name>ProtocolStackService</name>
+	<name>common-services-protocol-stack/protocolstack</name>
 	<packaging>war</packaging>
 	
 	<dependencies>
